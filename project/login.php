@@ -1,51 +1,55 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gatsby
- * Date: 18-12-27
- * Time: 下午4:06
- */
-//header('content-type:text/html;charset=utf-8');
 
+//用户登录: 负责处理与登录相关的所有请求(加载表单和验证登录信息)
+//header('Content-type:text/html;charset=utf-8');
+//引入公共文件
 include_once '/var/www/html/test/project/public/public.php';
-//处理用户登录的所有请求
-//判断用户提交信息
+
+//判断用户到底是想干什么: 提交数据一定是验证
 if(isset($_POST['submit'])){
-    //判断用户信息
+    //验证用户信息
 
-
-    //接受用户数据
-
-    $username=trim($_POST['usename']);
-    $password=trim($_POST['password']);
+    //接收表单数据
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']); //trim取出空格
 
     //合法性验证
-    if(empty($usename)||empty($password)){
-        //用户名密码不能为空
-        header('refresh:1,url=login.php');
-        echo '用户名密码不能为空';
-        exit;
-    }else{
-        //查询用户名密码是否正确
-        //加载数据库公共文件
-        $password=md5($password);
-        include_once '/var/www/html/test/project/public/mysql.php';
-    $sql="select * from pr_admin where username='{$username}' and password='{$password}'";
+    if(empty($username) || empty($password)){
+        //用户名或者密码为空
+        //跳转
+        //header('Refresh:3;url=login.php');
+        //echo '用户名和密码都不能为空!';
 
-    $res=my_error($sql);
+        //终止脚本执行
+        //exit;
+        redirect('login.php','用户名和密码都不能为空!');
+    }
 
-    $user=mysqli_fetch_assoc($res);
+    //从数据库查询当前用户和密码数据
+    //加载数据库公共文件
+    include_once '/var/www/html/test/project/public/mysql.php';
 
+    //验证用户信息
+    $username = addslashes($username);	//防止SQL注入
+    $password = md5($password);	//任何地方的md5都是一样
+    $sql = "select * from pr_admin where username='{$username}' and password='{$password}'";
+    //echo $sql;exit;
+
+    //执行查询: SQL语句有可能出错
+    $res = my_error($sql);		//$res是结果集: 永远为true
+
+    //解析结果集
+    $user = mysql_fetch_assoc($res);
+
+    //判断用户是否真的存在
     if(!$user){
-        echo '用户或者密码错误';
-        header('refresh:1,url=login.php');
-        redirect('login.php','用户名或者密码错误');
+        //用户不存在: 用户名或者密码错误: 重新登录
+        redirect('login.php','用户名或者密码错误!');
     }
 
-    }
-  
-}else
-{
-    //加载登录页面
-    include_once "/var/www/html/test/templates/login.html";
-};
+    //登录成功
+    redirect('index.php','登录成功!',1);
+}else{
+    //加载登录表单
+    include_once '/var/www/html/test/templates/login.html';
+}

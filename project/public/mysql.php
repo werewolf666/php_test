@@ -3,16 +3,15 @@
 	//数据库初始化操作文件
 
 	//连接认证
-	$link = @mysqli_connect('localhost','root','root');
-	echo '链接成功<br/>';
+	$link = @mysql_connect('localhost','root','root');
 
 	//判断连接结果
 	if(!$link){
 		//连接失败
 		echo '数据库连接失败!<br/>';
-		echo '错误编码是:' . mysqli_errno(). '<br/>';
+		echo '错误编码是:' . mysql_errno(). '<br/>';
 		//mysql获取到的错误信息默认是GBK编码
-		echo '错误信息是:' . iconv('GBK','UTF-8',mysqli_error()) . '<br/>';
+		echo '错误信息是:' . iconv('GBK','UTF-8',mysql_error()) . '<br/>';
 
 		//终止脚本
 		exit;
@@ -25,14 +24,14 @@
 	*/
 	function my_error($sql){
 		//执行sql语句
-		$res = mysqli_query($sql);
+		$res = mysql_query($sql);
 
 		//判断结果
 		if(!$res){
 			echo 'SQL语句有语法错误!<br/>';
-			echo '错误编码是:' . mysqli_errno(). '<br/>';
+			echo '错误编码是:' . mysql_errno(). '<br/>';
 			//mysql获取到的错误信息默认是GBK编码
-			echo '错误信息是:' . iconv('GBK','UTF-8',mysqli_error()) . '<br/>';
+			echo '错误信息是:' . iconv('GBK','UTF-8',mysql_error()) . '<br/>';
 
 			//终止脚本
 			exit;
