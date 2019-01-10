@@ -1,0 +1,17 @@
+.product-tab-bar{
+
+
+
+}
+
+.product-tab-bar .item {
+    color: #999;
+    display: inline-block;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    margin: 0 1rem;
+    position: relative;
+    font-size: 0.373333rem
+}
+
+

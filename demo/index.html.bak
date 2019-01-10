@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>黔趣玩</title>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="index.css">
+<div class="product-tab-container" id="productTabContainer">
+    <div class="product-tab-bar">
+        <span class="item">限时开抢</span>
+        <span class="item">开抢预告</span>
+    </div>
+    <div class="product-tab-wrapper">
+        <ul class="product-tab-group">
+            <li>
+                <a href="http://www.qianquwan.com/phone/tuan/show_30.html" class="info-box">
+                    <div class="hd"><img src="http://www.qianquwan.com/uploads/2018/1015/c868a942bea984751beb9cdaa6f1814f_240x170.jpg" alt=""></div>
+                    <div class="bd">
+                        <h4 class="tit-bar">限时抢购天下第一神汤全国八大温泉之息烽温泉</h4>
+                        <div class="pri-bar">
+                            <span class="pri">&yen;<span class="num">78.0</span></span>
+                            <span class="gai">赚<span class="num">&yen;0</span></span>
+                        </div>
+                        <div class="date-bar">2019年04月30日 13:21:00结束</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.qianquwan.com/phone/tuan/show_29.html" class="info-box">
+                    <div class="hd"><img src="http://www.qianquwan.com/uploads/2018/1015/ad346530936da7d66c4e5859df20ed0f_240x170.jpg" alt=""></div>
+                    <div class="bd">
+                        <h4 class="tit-bar">天下第一神汤全国八大温泉之息烽温泉</h4>
+                        <div class="pri-bar">
+                            <span class="pri">&yen;<span class="num">78.0</span></span>
+                            <span class="gai">赚<span class="num">&yen;10</span></span>
+                        </div>
+                        <div class="date-bar">2019年04月30日 13:20:00结束</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.qianquwan.com/phone/tuan/show_44.html" class="info-box">
+                    <div class="hd"><img src="http://www.qianquwan.com/uploads/2018/1210/a42557b1c086221b8d77d5647f49fb59_240x170.jpg" alt=""></div>
+                    <div class="bd">
+                        <h4 class="tit-bar">贵阳丘峻儿童运动馆</h4>
+                        <div class="pri-bar">
+                            <span class="pri">&yen;<span class="num">29.9</span></span>
+                            <span class="gai">赚<span class="num">&yen;9</span></span>
+                        </div>
+                        <div class="date-bar">2019年12月31日 10:11:00结束</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.qianquwan.com/phone/tuan/show_49.html" class="info-box">
+                    <div class="hd"><img src="http://www.qianquwan.com/uploads/2019/0102/56d5d74cf3a7d04e0aa4b565adc85e5f_240x170.jpg" alt=""></div>
+                    <div class="bd">
+                        <h4 class="tit-bar">陶花园陶艺创意手工体验中心</h4>
+                        <div class="pri-bar">
+                            <span class="pri">&yen;<span class="num">19.9</span></span>
+                            <span class="gai">赚<span class="num">&yen;5</span></span>
+                        </div>
+                        <div class="date-bar">2019年01月09日 23:55:00结束</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.qianquwan.com/phone/tuan/show_8.html" class="info-box">
+                    <div class="hd"><img src="http://www.qianquwan.com/uploads/2018/1031/3cfe0fe26d9b678d60d50fe9a8aaac3a_240x170.jpg" alt=""></div>
+                    <div class="bd">
+                        <h4 class="tit-bar">天下水夷温泉单人门票</h4>
+                        <div class="pri-bar">
+                            <span class="pri">&yen;<span class="num">29.9</span></span>
+                            <span class="gai">赚<span class="num">&yen;5</span></span>
+                        </div>
+                        <div class="date-bar">2019年10月01日 23:59:00结束</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.qianquwan.com/phone/tuan/show_9.html" class="info-box">
+                    <div class="hd"><img src="http://www.qianquwan.com/uploads/2018/1031/2fb7b92e58b232c78096ef1d3aae5eaf_240x170.jpg" alt=""></div>
+                    <div class="bd">
+                        <h4 class="tit-bar">天下水夷温泉亲子门票</h4>
+                        <div class="pri-bar">
+                            <span class="pri">&yen;<span class="num">39.9</span></span>
+                            <span class="gai">赚<span class="num">&yen;8</span></span>
+                        </div>
+                        <div class="date-bar">2019年10月01日 23:59:00结束</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.qianquwan.com/phone/tuan/show_19.html" class="info-box">
+                    <div class="hd"><img src="http://www.qianquwan.com/uploads/2018/0828/8de8c176aa35ad87a8e800099a47de17_240x170.jpg" alt=""></div>
+                    <div class="bd">
+                        <h4 class="tit-bar">第八届酒博会单人券</h4>
+                        <div class="pri-bar">
+                            <span class="pri">&yen;<span class="num">20.0</span></span>
+                            <span class="gai">赚<span class="num">&yen;0</span></span>
+                        </div>
+                        <div class="date-bar">2019年11月27日 16:42:00结束</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.qianquwan.com/phone/tuan/show_20.html" class="info-box">
+                    <div class="hd"><img src="http://www.qianquwan.com/uploads/2018/0827/2f5ea5cb8c84be2e86798cdf9161bae6_240x170.jpg" alt=""></div>
+                    <div class="bd">
+                        <h4 class="tit-bar">第八届酒博会VIP贵宾券（畅玩4天）</h4>
+                        <div class="pri-bar">
+                            <span class="pri">&yen;<span class="num">60.0</span></span>
+                            <span class="gai">赚<span class="num">&yen;3</span></span>
+                        </div>
+                        <div class="date-bar">2019年09月12日 17:00:00结束</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.qianquwan.com/phone/tuan/show_21.html" class="info-box">
+                    <div class="hd"><img src="http://www.qianquwan.com/uploads/2018/0830/fddb20209075231f4f7e27931ed0d145_240x170.jpg" alt=""></div>
+                    <div class="bd">
+                        <h4 class="tit-bar">俏颐国际美生美容会所</h4>
+                        <div class="pri-bar">
+                            <span class="pri">&yen;<span class="num">49.9</span></span>
+                            <span class="gai">赚<span class="num">&yen;10</span></span>
+                        </div>
+                        <div class="date-bar">2019年09月10日 23:59:00结束</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.qianquwan.com/phone/tuan/show_18.html" class="info-box">
+                    <div class="hd"><img src="http://www.qianquwan.com/uploads/2018/0827/8b2919b8f021840f9cfc3d5d1bbdf5ee_240x170.jpeg" alt=""></div>
+                    <div class="bd">
+                        <h4 class="tit-bar">重庆魏道火锅4人套餐</h4>
+                        <div class="pri-bar">
+                            <span class="pri">&yen;<span class="num">128.0</span></span>
+                            <span class="gai">赚<span class="num">&yen;15</span></span>
+                        </div>
+                        <div class="date-bar">2019年09月12日 23:59:00结束</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
