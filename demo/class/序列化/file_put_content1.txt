@@ -1,0 +1,1 @@
+a:3:{s:4:"name";s:8:"xiaoming";s:3:"age";i:19;s:3:"sex";s:3:"man";}
