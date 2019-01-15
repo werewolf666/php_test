@@ -10,6 +10,12 @@ class ProductsController extends Controller {
 		$rs=$model->getList();
 		require __VIEW__.'showList.html';
 	}
+	public function addAction() {
+		require __VIEW__.'add.html';
+	}
+	public function modifyAction() {
+		require __VIEW__.'modify.html';
+	}
 	public function delAction() {
 		$id=$_GET['id'];
 		$model=new ProductsModel();

@@ -1,0 +1,4 @@
+#通过分布式文件关闭session自启
+
+php_flag session.auto_start 0
+
