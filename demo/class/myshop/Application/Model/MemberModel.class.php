@@ -16,7 +16,6 @@ class MemberModel extends Model {
          return $this->db->fetchAll($sql);
      }
 
-
      /**
       * 添加数据
       */
