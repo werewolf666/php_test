@@ -3,7 +3,7 @@
 class AdminController extends Controller{
 
     public function adminAction(){
-//        echo 'AdminController';
+        // 登录成功跳转页面
         require __VIEW__.'admin.html';
     }
 

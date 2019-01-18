@@ -13,6 +13,7 @@ class LoginController extends Controller{
             if($info){
                 //--------------------记住登陆开始----------------------------
                 if(isset($_POST['remember'])){
+                    sleep(20);
                     setcookie('id',$info['id'],PHP_INT_MAX);
                     setcookie('pwd',md5($info['name'].$info['pwd'].$GLOBALS['config']['app']['key']),PHP_INT_MAX);
                 }

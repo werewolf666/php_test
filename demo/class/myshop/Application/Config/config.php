@@ -10,9 +10,10 @@ return array(
     ),
 
     'application'=>array(
-        'default_platform'=>'Admin',
-        'default_controller'=>'Member',
-        'default_action'=>'list'
+        'default_platform'      =>'Admin',
+        'default_controller'    =>'Login',
+        'default_action'        =>'login',
+        'key'                   =>'php'
     ),
 
 );

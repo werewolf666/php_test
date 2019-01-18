@@ -9,8 +9,9 @@ class Controller{
 
     public function __construct()
     {
-        //初始化sessionLib
-        $this->initSession();
+
+        $this->initSession();//初始化sessionLib
+        $this->checkLogin();//初始化checkLogin方法
     }
 
     /**
@@ -22,6 +23,21 @@ class Controller{
         new SessionLib();
         session_start();
     }
+
+
+    /**
+     * 防止翻墙，将用户信息写入session中，用户如果没有回话记录的话是需要登录的。
+     */
+    private function checkLogin(){
+        if (strtolower(CONTROLLER_NAME=='login' or strtoupper(CONTROLLER_NAME=='Login')))
+            return;
+        if(empty($_SESSION['admin'])){
+            header('location:index.php?p=Admin&c=login&a=login');
+            exit;
+        }
+    }
+
+
     /**
      * @param $url
      * @param $flag
@@ -29,7 +45,7 @@ class Controller{
      * @param int $time
      * 操作成功方法
      */
-    public function success($url,$flag,$msg='',$time=3){
+    public function success($url,$msg='',$time=3){
         $this->jump($url,$flag=true,$msg);
     }
 
@@ -40,7 +56,7 @@ class Controller{
      * @param int $time
      * 失败跳转方法
      */
-    public function error($url,$flag,$msg='',$time=1){
+    public function error($url,$msg='',$time=1){
         $this->jump($url,$flag=false,$msg);
     }
 
