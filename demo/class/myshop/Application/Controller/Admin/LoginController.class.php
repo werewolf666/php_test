@@ -42,6 +42,4 @@ class LoginController extends Controller{
         session_destroy();
         $this->success('index.php?p=admin&c=login&a=login');
     }
-
-
 }
