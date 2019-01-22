@@ -20,6 +20,6 @@ $values=array_map(function($value){
 $values_str=implode(',',$values);
 //拼接字符串
 $sql="insert into `{$table}` ({$fields_str}) values ($values_str)";
-echo $sql; //
+echo $sql;
 
 
