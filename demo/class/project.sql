@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 2019-01-18 19:18:28
+-- Generation Time: 2019-01-23 17:35:03
 -- 服务器版本： 5.6.30-1
 -- PHP Version: 5.6.26-1
 
@@ -39,7 +39,37 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `pwd`, `last_login_ip`, `last_login_time`) VALUES
-(1, 'aa', '4124bc0a9335c27f086f24ba207a4912', 2130706433, 1547809984);
+(1, 'aa', '4124bc0a9335c27f086f24ba207a4912', 2130706433, 1548224741);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(10) UNSIGNED NOT NULL COMMENT 'id',
+  `name` varchar(50) NOT NULL COMMENT '类别名称',
+  `sort_order` int(11) NOT NULL DEFAULT '50' COMMENT '排序',
+  `parent_id` int(10) UNSIGNED NOT NULL COMMENT '父级id'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `sort_order`, `parent_id`) VALUES
+(1, '图像，音响，数字商品', 50, 0),
+(2, '家用电器', 50, 0),
+(3, '手机数码', 50, 0),
+(4, '电子书', 50, 1),
+(5, '数字音乐', 50, 1),
+(6, '励志', 50, 4),
+(7, '文学', 50, 4),
+(8, '家电', 50, 2),
+(10, '电视机', 30, 8),
+(11, '电视1', 30, 8),
+(12, '电视机1', 30, 8);
 
 -- --------------------------------------------------------
 
@@ -148,7 +178,17 @@ CREATE TABLE `sess` (
 --
 
 INSERT INTO `sess` (`sess_id`, `sess_value`, `sess_expires`) VALUES
-('a0fls9elajhedlnijefo0ph0q2', 'admin|a:5:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:2:\"aa\";s:3:\"pwd\";s:32:\"4124bc0a9335c27f086f24ba207a4912\";s:13:\"last_login_ip\";s:10:\"2130706433\";s:15:\"last_login_time\";s:10:\"1547809837\";}', 1547809974);
+('2e1a273t832iobdtl69lv88060', 'code|s:4:\"lHL6\";admin|a:5:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:2:\"aa\";s:3:\"pwd\";s:32:\"4124bc0a9335c27f086f24ba207a4912\";s:13:\"last_login_ip\";s:10:\"2130706433\";s:15:\"last_login_time\";s:10:\"1548222769\";}', 1548224735),
+('504q853dk54n1b14ejtbf1ogh6', '', 1548065427),
+('6g2dj0o8ku7jr9e963c39ee583', '', 1548063825),
+('a0fls9elajhedlnijefo0ph0q2', 'admin|a:5:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:2:\"aa\";s:3:\"pwd\";s:32:\"4124bc0a9335c27f086f24ba207a4912\";s:13:\"last_login_ip\";s:10:\"2130706433\";s:15:\"last_login_time\";s:10:\"1547809837\";}', 1547809974),
+('Array', 'alex', 1548139829),
+('b8tf93vom5gbbmpf5tkfkc9ac3', 'code|s:4:\"E9NI\";', 1548139684),
+('ia2u7o9fjnr5d9p2ug00pq4732', 'code|s:4:\"gHaR\";', 1548134974),
+('jjer6clp3klmf6fltpvhasqq70', 'code|s:4:\"uoAz\";', 1548072259),
+('kj8qrn34vblvbsfpmk4iug4bp4', '', 1548048927),
+('r1ffr579vvj86soigbbm9dff22', 'admin|a:5:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:2:\"aa\";s:3:\"pwd\";s:32:\"4124bc0a9335c27f086f24ba207a4912\";s:13:\"last_login_ip\";s:10:\"2130706433\";s:15:\"last_login_time\";s:10:\"1548055102\";}', 1548054994),
+('tsn3o55lb8i8dteuurqm3c6t23', '', 1548070600);
 
 -- --------------------------------------------------------
 
@@ -223,6 +263,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `my_goods`
 --
 ALTER TABLE `my_goods`
@@ -263,6 +309,11 @@ ALTER TABLE `sline_member`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- 使用表AUTO_INCREMENT `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id', AUTO_INCREMENT=20;
 --
 -- 使用表AUTO_INCREMENT `my_goods`
 --
