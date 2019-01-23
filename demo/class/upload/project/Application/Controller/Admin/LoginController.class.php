@@ -5,6 +5,18 @@ class LoginController extends Controller{
      */
     public function loginAction(){
         $model=new AdminModel(); //实例化Adminmodel
+//        测试万能的SQL语句；
+//        $data['name']='tom';
+//        $data['pwd']='tom';
+//        $data['last_login_ip']='2002';
+//        $data['last_login_time']='3002';
+//        $data['id']=2;
+//        $model->update($data);
+//        $model->del(2);
+//        $model->select();
+//        var_dump($model->select());
+//        exit;
+
         if (!empty($_POST)){
             // 获取验证码
             $captcha=new CaptchaLib();

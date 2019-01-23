@@ -14,8 +14,8 @@ class LoginController extends Controller{
             {
                 // ------------记录登录开始--------------
                 if (isset($_POST['remember'])){
-                    setcookie('id',$info['id'],PHP_INT_MAX);
-                    setcookie('pwd',md5($info['name'].$info['pwd'].$GLOBALS['config']['application']['key']),PHP_INT_MAX);
+                    setcookie('id',$info['id'],5000);
+                    setcookie('pwd',md5($info['name'].$info['pwd'].$GLOBALS['config']['application']['key']),5000);
                 }
                 // -----------记录登录结束-----------------
 
