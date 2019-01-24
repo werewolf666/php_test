@@ -1,17 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>demo</title>
-<body>
 <?php
-if (isset($_POST['submit'])){
-    echo '<pre>';
-    var_dump($_FILES['file']);
-}
-?>
-<form method="post" enctype="multipart/form-data" name="">
-    选择文件<input type="file" name="file"/> <br/>
-    <input type="submit" name="submit" value="上传"/>
-</form>
-</body>
+/**
+ * 生成缩略图
+ * 函数：imagecopyresampled() 剪裁图片
+ */
+//创建一个真彩色原图
+$dst=imagecreatetruecolor(200,200);//创建一个真彩色图 desert
+$src=imagecreatefromjpeg('./uploads/1.jpg');//打开源图片
+$width=imagesx($src);
+$hight=imagesy($src);
+//imagecopyresampled($dst,$src,0,0,240,100,200,200,180,176); //所有参数必填
+//imagecopyresampled($dst,$src,0,0,240,100,200,200,$width,$hight); //所有参数必填
+imagecopyresampled($dst,$src,13,10,240,100,200,200,$width,$hight); //所有参数必填
+ob_end_clean();
+header('content-type:image/png');
+imagepng($dst,'./uploads/sm_1.png');
+imagedestroy($dst);
+imagedestroy($src);

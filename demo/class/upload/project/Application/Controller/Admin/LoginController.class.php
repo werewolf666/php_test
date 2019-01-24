@@ -53,7 +53,7 @@ class LoginController extends Controller{
             $_SESSION['admin']=$info;//只要登录成功，就将session记录
             $model->updateLoginInfo(); //更新登录信息
         }else{
-            require __VIEW__.'login.html';
+            require __VIEW__.'login.php';
         }
     }
 

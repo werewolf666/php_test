@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 2019-01-23 17:35:03
+-- Generation Time: 2019-01-24 17:25:06
 -- 服务器版本： 5.6.30-1
 -- PHP Version: 5.6.26-1
 
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `pwd`, `last_login_ip`, `last_login_time`) VALUES
-(1, 'aa', '4124bc0a9335c27f086f24ba207a4912', 2130706433, 1548224741);
+(1, 'aa', '4124bc0a9335c27f086f24ba207a4912', 2130706433, 1548320399);
 
 -- --------------------------------------------------------
 
@@ -70,6 +70,24 @@ INSERT INTO `category` (`id`, `name`, `sort_order`, `parent_id`) VALUES
 (10, '电视机', 30, 8),
 (11, '电视1', 30, 8),
 (12, '电视机1', 30, 8);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `goods`
+--
+
+CREATE TABLE `goods` (
+  `goodsid` int(10) UNSIGNED NOT NULL COMMENT '商品编号',
+  `name` varchar(50) NOT NULL COMMENT '商品名称',
+  `price` decimal(10,2) NOT NULL COMMENT '商品价格',
+  `img` varchar(500) DEFAULT NULL COMMENT '源图地址',
+  `img_thumb_sm` varchar(200) DEFAULT NULL COMMENT '缩略图1',
+  `img_thumb_mid` varchar(200) DEFAULT NULL COMMENT '缩略图2',
+  `categoryid` int(10) UNSIGNED NOT NULL COMMENT '商品类别id',
+  `status` set('best','new','hot') NOT NULL COMMENT '商品类别 精品,新品,热销',
+  `goods_desc` text COMMENT '商品描述'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -179,6 +197,7 @@ CREATE TABLE `sess` (
 
 INSERT INTO `sess` (`sess_id`, `sess_value`, `sess_expires`) VALUES
 ('2e1a273t832iobdtl69lv88060', 'code|s:4:\"lHL6\";admin|a:5:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:2:\"aa\";s:3:\"pwd\";s:32:\"4124bc0a9335c27f086f24ba207a4912\";s:13:\"last_login_ip\";s:10:\"2130706433\";s:15:\"last_login_time\";s:10:\"1548222769\";}', 1548224735),
+('49f92vir01v7pii2h4ceg7egd5', 'code|s:4:\"t31c\";admin|a:5:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:2:\"aa\";s:3:\"pwd\";s:32:\"4124bc0a9335c27f086f24ba207a4912\";s:13:\"last_login_ip\";s:10:\"2130706433\";s:15:\"last_login_time\";s:10:\"1548224741\";}', 1548320390),
 ('504q853dk54n1b14ejtbf1ogh6', '', 1548065427),
 ('6g2dj0o8ku7jr9e963c39ee583', '', 1548063825),
 ('a0fls9elajhedlnijefo0ph0q2', 'admin|a:5:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:2:\"aa\";s:3:\"pwd\";s:32:\"4124bc0a9335c27f086f24ba207a4912\";s:13:\"last_login_ip\";s:10:\"2130706433\";s:15:\"last_login_time\";s:10:\"1547809837\";}', 1547809974),
@@ -269,6 +288,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `goods`
+--
+ALTER TABLE `goods`
+  ADD PRIMARY KEY (`goodsid`);
+
+--
 -- Indexes for table `my_goods`
 --
 ALTER TABLE `my_goods`
@@ -313,7 +338,12 @@ ALTER TABLE `admin`
 -- 使用表AUTO_INCREMENT `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id', AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id', AUTO_INCREMENT=13;
+--
+-- 使用表AUTO_INCREMENT `goods`
+--
+ALTER TABLE `goods`
+  MODIFY `goodsid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '商品编号';
 --
 -- 使用表AUTO_INCREMENT `my_goods`
 --

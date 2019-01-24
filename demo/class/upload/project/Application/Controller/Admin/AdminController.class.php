@@ -4,22 +4,22 @@ class AdminController extends Controller{
 
     public function adminAction(){
         // 登录成功跳转页面
-        require __VIEW__.'admin.html';
+        require __VIEW__.'admin.php';
     }
 
     public function topAction(){
-        require __VIEW__.'top.html';
+        require __VIEW__.'top.php';
     }
 
     public function menuAction(){
-        require __VIEW__.'menu.html';
+        require __VIEW__.'menu.php';
     }
 
     public function dragAction(){
-        require __VIEW__.'drag.html';
+        require __VIEW__.'drag.php';
     }
 
     public function mainAction(){
-        require __VIEW__.'main.html';
+        require __VIEW__.'main.php';
     }
 }
