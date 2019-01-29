@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 2019-01-24 17:25:06
+-- Generation Time: 2019-01-29 18:04:48
 -- 服务器版本： 5.6.30-1
 -- PHP Version: 5.6.26-1
 
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `pwd`, `last_login_ip`, `last_login_time`) VALUES
-(1, 'aa', '4124bc0a9335c27f086f24ba207a4912', 2130706433, 1548320399);
+(1, 'aa', '4124bc0a9335c27f086f24ba207a4912', 2130706433, 1548752821);
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ INSERT INTO `category` (`id`, `name`, `sort_order`, `parent_id`) VALUES
 (6, '励志', 50, 4),
 (7, '文学', 50, 4),
 (8, '家电', 50, 2),
-(10, '电视机', 30, 8),
+(10, '电视机', 30, 0),
 (11, '电视1', 30, 8),
 (12, '电视机1', 30, 8);
 
@@ -88,6 +88,18 @@ CREATE TABLE `goods` (
   `status` set('best','new','hot') NOT NULL COMMENT '商品类别 精品,新品,热销',
   `goods_desc` text COMMENT '商品描述'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `goods`
+--
+
+INSERT INTO `goods` (`goodsid`, `name`, `price`, `img`, `img_thumb_sm`, `img_thumb_mid`, `categoryid`, `status`, `goods_desc`) VALUES
+(3, '电脑', 200.00, NULL, '2019-01-29/sm_upload_5c4fdf5e92f4a7.61736853.jpg', '2019-01-29/mid_upload_5c4fdf5e92f4a7.61736853.jpg', 1, 'best,new', '电脑'),
+(4, '1', 1.00, NULL, '2019-01-29/sm_upload_5c4fefa447ef88.64530492.jpg', '2019-01-29/mid_upload_5c4fefa447ef88.64530492.jpg', 1, 'best,new', '1'),
+(5, '2', 2.00, NULL, '2019-01-29/sm_upload_5c4fefb495c9a8.20591532.jpg', '2019-01-29/mid_upload_5c4fefb495c9a8.20591532.jpg', 1, 'best', '2'),
+(6, '3', 3.00, NULL, '2019-01-29/sm_upload_5c4fefce8f9d77.66132134.jpg', '2019-01-29/mid_upload_5c4fefce8f9d77.66132134.jpg', 1, 'best,new', '3'),
+(7, '4', 4.00, NULL, '2019-01-29/sm_upload_5c4fefe1d7b115.21888869.jpg', '2019-01-29/mid_upload_5c4fefe1d7b115.21888869.jpg', 0, 'best', '4'),
+(8, '5', 5.00, NULL, '2019-01-29/sm_upload_5c4ff00eb47fd0.94724261.jpg', '2019-01-29/mid_upload_5c4ff00eb47fd0.94724261.jpg', 1, 'new', '5');
 
 -- --------------------------------------------------------
 
@@ -197,9 +209,11 @@ CREATE TABLE `sess` (
 
 INSERT INTO `sess` (`sess_id`, `sess_value`, `sess_expires`) VALUES
 ('2e1a273t832iobdtl69lv88060', 'code|s:4:\"lHL6\";admin|a:5:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:2:\"aa\";s:3:\"pwd\";s:32:\"4124bc0a9335c27f086f24ba207a4912\";s:13:\"last_login_ip\";s:10:\"2130706433\";s:15:\"last_login_time\";s:10:\"1548222769\";}', 1548224735),
+('41or81erngd8i4m37h7gc3bl94', 'code|s:4:\"J95L\";admin|a:5:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:2:\"aa\";s:3:\"pwd\";s:32:\"4124bc0a9335c27f086f24ba207a4912\";s:13:\"last_login_ip\";s:10:\"2130706433\";s:15:\"last_login_time\";s:10:\"1548737075\";}', 1548736969),
 ('49f92vir01v7pii2h4ceg7egd5', 'code|s:4:\"t31c\";admin|a:5:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:2:\"aa\";s:3:\"pwd\";s:32:\"4124bc0a9335c27f086f24ba207a4912\";s:13:\"last_login_ip\";s:10:\"2130706433\";s:15:\"last_login_time\";s:10:\"1548224741\";}', 1548320390),
 ('504q853dk54n1b14ejtbf1ogh6', '', 1548065427),
 ('6g2dj0o8ku7jr9e963c39ee583', '', 1548063825),
+('8gd2el74j4mvhtdlorijnbuvv1', 'code|s:4:\"23cE\";', 1548404298),
 ('a0fls9elajhedlnijefo0ph0q2', 'admin|a:5:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:2:\"aa\";s:3:\"pwd\";s:32:\"4124bc0a9335c27f086f24ba207a4912\";s:13:\"last_login_ip\";s:10:\"2130706433\";s:15:\"last_login_time\";s:10:\"1547809837\";}', 1547809974),
 ('Array', 'alex', 1548139829),
 ('b8tf93vom5gbbmpf5tkfkc9ac3', 'code|s:4:\"E9NI\";', 1548139684),
@@ -268,8 +282,7 @@ INSERT INTO `sline_member` (`mid`, `mtype`, `nickname`, `pwd`, `truename`, `sex`
 (3, NULL, '时代+梁山伯', '168908dd3227b8358eababa07fcaf091', '', '保密', 0, 0.00, '', '', 0, '//thirdwx.qlogo.cn/mmopen/vi_32/XgDtWeiaKW61RJkmTY4SicXoCibqJjRP8kobEGQdYI2iaibLkw3yDVicQRk5ia3Xl29BTy30uXSKyQ08hNNOJ4BbzalXQ/132', '0', '', 1531819177, '', 1545663725, '58.16.228.19', 0, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, 0, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0.00, 1, NULL, NULL),
 (4, NULL, '18786***', '4de237c9e64ede19627423ee3734bc28', '', '保密', 0, 0.00, '', '187867442476', 0, '', '0', '', 1531891645, '1.204.210.4', 1531891645, '', 0, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, 0, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0.00, 1, NULL, NULL),
 (5, NULL, 'HMQ', '1ce927f875864094e3906a4a0b5ece68', '', '保密', 0, 0.00, '', '', 0, '//thirdwx.qlogo.cn/mmopen/vi_32/gt7f11MRWxmCiaSXxicx4h26mWUf3lv3r8ia3sPkLzpIqgBiaT1mhWQZBGSYxJCkImzuuPcRkA2lXKvbDKCgawjqew/132', '0', '', 1531893661, '', 1545468384, '223.104.94.225', 0, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, 0, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0.00, 1, NULL, NULL),
-(6, NULL, '不负倾城时光', '0266e33d3f546cb5436a10798e657d97', '', '保密', 0, 0.00, '', '', 0, '//thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTL3Sp9KvfNyDHdcEG9NOgSPYtibCa9icnB5EwQGBbdkDRaHRibXdkHJRlXanBaIOeMpk21SkNOCFdX9g/132', '0', '', 1531893678, '', 1545736222, '117.188.14.91', 0, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, 0, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0.00, 1, NULL, NULL),
-(7, NULL, '倪倪宝儿', '82489c9737cc245530c7a6ebef3753ec', '', '保密', 0, 0.00, '', '', 0, '//thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eprMMZHgyG1HvU8qYgS9qRnsbylMeCOiaqUpJhHxPpXy97VoAMregqjgGeJPy2kyreVtx9W6hib6ibsA/132', '0', '', 1531893737, '', 1532749985, '58.16.228.120', 0, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, 0, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0.00, 1, NULL, NULL);
+(6, NULL, '不负倾城时光', '0266e33d3f546cb5436a10798e657d97', '', '保密', 0, 0.00, '', '', 0, '//thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTL3Sp9KvfNyDHdcEG9NOgSPYtibCa9icnB5EwQGBbdkDRaHRibXdkHJRlXanBaIOeMpk21SkNOCFdX9g/132', '0', '', 1531893678, '', 1545736222, '117.188.14.91', 0, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, 0, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0.00, 1, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -343,7 +356,7 @@ ALTER TABLE `category`
 -- 使用表AUTO_INCREMENT `goods`
 --
 ALTER TABLE `goods`
-  MODIFY `goodsid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '商品编号';
+  MODIFY `goodsid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '商品编号', AUTO_INCREMENT=9;
 --
 -- 使用表AUTO_INCREMENT `my_goods`
 --
@@ -363,7 +376,7 @@ ALTER TABLE `pr_admin`
 -- 使用表AUTO_INCREMENT `sline_member`
 --
 ALTER TABLE `sline_member`
-  MODIFY `mid` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `mid` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

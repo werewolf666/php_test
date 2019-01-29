@@ -1,4 +1,7 @@
 <?php
+/**
+ * 生成等比缩略图
+ */
 $max_w=300;
 $max_h=300;
 $dst=imagecreatetruecolor($max_w,$max_h); //目标图
