@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+window.onload=function () {
+    var req=new XMLHttpRequest();
+    document.getElementById('btn').onclick=function () {
+//        req.open('get','demo7.php');//方法1 设置header头不允许缓存 推荐
+        req.open('get','demo7.php?'+Math.random());//方法2 在URL里面增加随机数防止调用缓存的作用
+        req.onreadystatechange=function(){
+            if(req.readyState==4 && req.status==200){
+                var str=req.responseText;
+                alert(str);
+            }
+        }
+        req.send(null);
+    }
+}
+</script>
+<input type="button" value="点击" id="btn">
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+window.onload=function () {
+    document.getElementById('username').onblur=function () {
+        var username=document.getElementById('username').value;
+        username=encodeURIComponent(username);//对数据进行编码
+        var req=new XMLHttpRequest();
+        req.open('post','demo3.php?age='+20);//post传递
+        req.onreadystatechange=function(){
+            if(req.readyState==4 && req.status==200){
+                var str=req.responseText;//获取服务器返回的字符串
+                alert(str);
+            }
+        }
+        req.setRequestHeader('Content-Type','application/x-www-form-urlencoded');//如果是send提交数据,必须在send前面加上这个方法将数据转换成xml格式数据提交
+        req.send('username='+username);//如果send方法没有数据 写空,约定
+    }
+}
+</script>
+<input type="text" name="" id="username">
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload=function () {
+        document.getElementById('btn').onclick=function () {
+            var username=document.getElementById('username').value;
+            username=encodeURIComponent(username);//对数据进行编码
+            var req=new XMLHttpRequest();
+            req.open('get','demo2.php?username='+username);//get传递
+            req.onreadystatechange=function(){
+                if(req.readyState==4 && req.status==200){
+                    var str=req.responseText;//获取服务器返回的字符串
+                    alert(str);
+                }
+            }
+            req.send(null);//如果send方法没有数据 写空,约定
+        }
+    }
+</script>
+<input type="text" name="" id="username">
+<input type="button" value="点击" id="btn">
+</body>
+</html>

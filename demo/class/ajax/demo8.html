@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //创建json格式数据
+    var stu={
+        'name':'李白',
+        'sex':'男',
+        'func1':function () {
+            alert('锄禾日当午')
+        },
+        'array1':[10,20,30],
+        'obj1':{'num1':'1','num2':'2'}
+    };
+    //给对象属性值
+    stu.age=18;
+    stu['add']='上海';
+    //取值
+    console.log(stu.name);
+    console.log(stu['sex']);
+    //循环取值
+    for(var s in stu){
+        console.log(stu[s]);
+    }
+    //获取函数
+    stu.func1();
+    //获取数组
+    console.log(stu['array1']);
+    //获取对象
+    console.log(stu.obj1);
+    console.log(stu['obj1']);
+</script>
+</body>
+</html>
