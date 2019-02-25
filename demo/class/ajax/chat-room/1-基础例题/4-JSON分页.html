@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style type="text/css">
+	table{
+		width: 780px;
+		border: #000 solid 1px;
+		margin: auto;
+	}
+	td,th{
+		border: #000 solid 1px;
+	}
+</style>
+</head>
+<body>
+<table id='result'></table>
+<script type="text/javascript">
+function getPageList(pageno){
+	var req=new XMLHttpRequest();
+	req.open('get','./4-demo.php?pageno='+pageno);
+	req.onreadystatechange=function(){
+		if(req.readyState==4 && req.status==200){
+			eval('var info='+req.responseText);
+			var str='<tr><th>编号</th><th>商品名称</th><th>商品规格</th><th>商品价格</th><th>库存量</th></tr>';
+			for(var i=0,n=info.length-1;i<n;i++){
+				str+='<tr><td>'+info[i].proID+'</td><td>'+info[i].proname+'</td><td>'+info[i].proguige+'</td><td>'+info[i].proprice+'</td><td>'+info[i].proamount+'</td></tr>';
+			}
+			str+='<tr><td colspan="5" align="center">';
+			for(var i=1;i<=info[info.length-1];i++){
+				str+='<a href="javascript:void(0)" onclick="getPageList('+i+')">'+i+'</a>&nbsp;';
+			}
+			str+='</td></tr>';
+			document.getElementById('result').innerHTML=str;
+		}
+	}
+	req.send(null);
+}
+window.onload=function(){
+	getPageList(1);
+}
+</script>
+</body>
+</html>

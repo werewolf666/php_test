@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+window.onload=function(){
+	document.getElementById('btn').onclick=function(){
+		var frm=document.getElementById('frm');
+		var fd=new FormData(frm);	//收集frm表单的数据,文本数据和二进制数据
+		var req=new XMLHttpRequest();
+		req.open('post','./5-demo.php');
+		req.onreadystatechange=function(){
+			if(req.readyState==4 && req.status==200){
+				console.log(req.responseText);
+			}
+		}
+		req.send(fd);	//发送FormData对象
+	}
+}
+	
+</script>
+<form action="" id="frm">
+	用户名：<input type="text" name="username" id=""><br>
+	密码：<input type="password" name="pwd" id=""> <br>
+	<input type="button" value="用户登录" id='btn'>
+</form>
+</body>
+</html>

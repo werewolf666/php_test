@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	window.onload=function(){
+		document.getElementById('btn').onclick=function(){
+			var frm=document.getElementById('frm');
+			var fd=new FormData(frm);
+			var req=new XMLHttpRequest();
+			req.open('post','./6-demo.php');
+			req.onreadystatechange=function(){
+				if(req.readyState==4 && req.status==200){
+					if(req.responseText=='1'){
+						alert('上传成功');
+					}else{
+						alert('长传失败');
+					}
+				}
+			}
+			req.send(fd);
+		}
+	}
+</script>
+<form id='frm'><!--不需要enctype属性-->
+	用户名：<input type="text" name="username" id=""><br>
+	头像：<input type="file" name="face" id=""><br>
+	<input type="button" value="注册" id='btn'>
+</form>
+</body>
+</html>

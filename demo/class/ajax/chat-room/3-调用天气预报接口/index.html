@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+window.onload=function(){
+	var req=new XMLHttpRequest();
+	req.onreadystatechange=function(){
+		if(req.readyState==4 && req.status==200){
+			eval('var info='+req.responseText);
+			info=info.weatherinfo
+			console.log(info);
+			var str='';
+			str+='城市：'+info.city+'<br>';
+			str+='城市编号：'+info.cityid+'<br>';
+			str+='温度：'+info.temp+'<br>';
+			str+='风向：'+info.WD+'<br>';
+			str+='风级：'+info.WS+'<br>';
+			str+='发布时间：'+info.time;
+			document.getElementById('result').innerHTML=str;
+		}
+	}
+	req.open('get','./getWeather.php');
+	req.send();
+}
+</script>
+<div id="result"></div>
+</body>
+</html>

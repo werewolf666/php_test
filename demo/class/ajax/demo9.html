@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        table{
+            width:780px;
+            border:#000 solid 1px;
+            margin:auto;
+        }
+        td,th{
+            border:#000 solid 1px;
+        }
+    </style>
+</head>
+<body>
+<table id="result"></table>
+<script type="text/javascript">
+function getPageList(pageno){
+    var req=new XMLHttpRequest();
+    req.open('get','./demo9.php?pageno='+pageno);
+    req.onreadystatechange=function () {
+        if(req.readyState==4 && req.status==200){
+            eval('var info='+req.responseText);
+            var str='<tr><th>编号</th><th>名称</th><th>其他</th></tr>';
+            for(var i=0,n=info.length-1;i<n;i++) {
+                str+='<tr><td>'+info[i].id+'</td><td>' + info[i].name + '</td><td>' + info[i].sort_order + '</td></tr>';
+            }
+            str+='<tr><td colspan="3" align="center">';
+            for(var i=1;i<=info.length-1;i++){
+                console.log(info.length);
+                str+='<a href="javascript:void(0)" onclick="getPageList('+i+')">'+i+'</a>&nbsp;';
+            }
+            str+='</td></tr>'
+            document.getElementById('result').innerHTML=str;
+            console.log(str);
+        }
+    }
+    req.send(null);
+}
+window.onload=function () {
+    getPageList(1);
+}
+</script>
+</body>
+</html>
