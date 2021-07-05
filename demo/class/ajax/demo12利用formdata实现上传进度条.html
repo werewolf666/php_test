@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style type="text/css">
+#out{
+width:300px;
+height:20px;
+border:solid 1px #999;
+margin:10px 0px 0px 0px;
+}
+#in{
+width: 0%;
+height:100%;
+background-color: #ccc;
+}
+</style>
+<script type="text/javascript">
+    function upload() {
+        var frm=document.getElementById('frm');
+        var fd=new FormData(frm);
+        var req=new XMLHttpRequest();
+        req.open('post','./demo12.php');
+        req.onreadystatechange=function () {
+            if(req.readyState==4 && req.status==200){
+                alert('上传完毕');
+            }
+        }
+//        console.log(req);
+        //设置文件上传进程时间onprogress,可以监听到文件上传的所有进程,Linux大约每个50毫秒调用一次,用来进行进度条的编写--console.log(e);
+        req.upload.onprogress=function (e) {
+            var total=e.total;//文件总大小
+            var loaded=e.loaded;//已经上传大小
+            var percent=Math.floor(loaded/total*100);//变成整数
+            document.getElementById('in').style.width=percent+'%'; //修改进度条的宽度
+            document.getElementById('in').innerHTML=percent+'%'; //显示进度
+        }
+        req.send(fd);//发送表单数据
+    }
+</script>
+<form id="frm"><!-- 不需要enctype属相-->
+    用户名:<input type="text" name="username" id="username"> <br>
+    头像:<input type="file" name="face" id=""><br>
+    <div id="out">
+        <div id="in"></div>
+    </div>
+    <input type="button" value="注册" id="btn" onclick="upload()">
+</form>
+</body>
+</html>

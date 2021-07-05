@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<style type="text/css">
+	#out{
+		width:300px;
+		height: 20px;
+		border: solid 1px #999;
+		margin: 10px 0px 0px 0px;
+	}
+	#in{
+		width: 0%;
+		height: 100%;
+		background-color: #ccc
+	}
+</style>
+<script type="text/javascript">
+function register(){
+	var frm=document.getElementById('frm');
+	var fd=new FormData(frm);
+	var req=new XMLHttpRequest();
+	req.open('post','./7-demo.php');
+	req.onreadystatechange=function(){
+		if(req.readyState==4 && req.status==200){
+			alert('上传成功');
+		}
+	}
+	//console.log(req);
+	//设置文件上传的进程事件，onprogress事件对象可以监听到已经上传的文件大小，总大小。
+	//每隔100毫秒调用一次
+	req.upload.onprogress=function(e){
+		//console.log(e);
+		var total=e.total;	//总大小
+		var loaded=e.loaded;	//已经上传的大小
+		var percent=Math.floor(loaded/total*100);
+		document.getElementById('in').style.width=percent+'%';
+		document.getElementById('in').innerHTML=percent+'%';
+	}
+	req.send(fd);
+}
+</script>
+<form action="" id="frm">
+	用户名：<input type="text" name="username" id=""><br>
+	头像：<input type="file" name="face" id="">
+	<div id='out'>
+		<div id='in'></div>
+	</div>
+	<input type="button" value="注册" id='btn' onclick='register()'>
+</form>
+</body>
+</html>

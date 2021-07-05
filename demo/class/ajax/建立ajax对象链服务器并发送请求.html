@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload=function(){
+        document.getElementById('btn').onclick=function () {
+            //创建ajax对象
+            var req='';
+            if(window.XMLHttpRequest)
+                req=new XMLHttpRequest();
+            else
+                req=new ActiveXObject("Msxml2.XMLHTTP");
+            req.open('get','demo1.php');//建立链接
+            req.send();//发送请求
+        }
+    }
+</script>
+<input type="text" name="content">
+<input type="button" value="点击" id="btn">
+</body>
+</html>

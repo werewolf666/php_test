@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<class>
+        <stu>
+                <name>李白</name>
+                <sex>男</sex>
+        </stu>
+        <stu>
+                <name>白居易</name>
+                <sex>女</sex>
+        </stu>
+</class>

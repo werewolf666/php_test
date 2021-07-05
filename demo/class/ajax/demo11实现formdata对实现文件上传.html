@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="frm"><!-- 不需要enctype属相-->
+    用户名:<input type="text" name="username" id="username"> <br>
+    头像:<input type="file" name="face" id=""><br>
+    <input type="button" value="注册" id="btn">
+</form>
+<script type="text/javascript">
+    window.onload=function () {
+        document.getElementById('btn').onclick=function () {
+            var frm=document.getElementById('frm');//找到表单frm,预备转给formdata对象
+            var fd=new FormData(frm);//实例化对象
+            var req=new XMLHttpRequest();
+            req.open('post','./demo11.php');
+            req.onreadystatechange=function () {
+                if(req.readyState==4 && req.status==200){
+                    console.log(req.responseText);
+                }
+            }
+            req.send(fd);//发送表单数据
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function getStu(){
+        var req=new XMLHttpRequest();
+        req.open('get','./stu.xml');
+        req.onreadystatechange=function(){
+            if(req.readyState==4 && req.status==200){
+                var dom=req.responseXML;//将XML信息按照DOM结构返回
+                var stu_list=dom.getElementsByTagName('stu');
+                var str='';
+                console.log(stu_list[0].getElementsByTagName('name')[0].firstChild.nodeValue);
+                for(var i=0,n=stu_list.length;i<n;i++){
+                    str+='姓名: '+stu_list[i].getElementsByTagName('name')[0].firstChild.nodeValue+'<br>';
+                    str+='性别: '+stu_list[i].getElementsByTagName('sex')[0].firstChild.nodeValue+'<br>';
+                }
+                document.getElementById('result').innerHTML=str;
+            }
+        }
+        req.send(null);
+    }
+</script>
+<div id="result"></div>
+<input type="button" value="点击" id="btn" onclick="getStu()">
+</body>
+</html>

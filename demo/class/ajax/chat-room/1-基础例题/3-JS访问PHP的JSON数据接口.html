@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+window.onload=function(){
+	document.getElementById('btn').onclick=function(){
+		var req=new XMLHttpRequest();
+		req.open('get','./3-demo.php');
+		req.onreadystatechange=function(){
+			if(req.readyState==4 && req.status==200){
+				var str=req.responseText;
+				//console.log(typeof str);		//string
+				eval('var info='+str);	//将字符串转成对象
+				//console.log(typeof(info));	//object
+				document.getElementById('result').innerHTML='姓名：'+info.name+
+				'<br>性别：'+info.sex+
+				'<br>年龄：'+info.age
+				 
+			}
+		}
+		req.send(null);
+	}
+}
+</script>
+<div id="result"></div>
+<input type="button" value="点击" id='btn'>
+</body>
+</html>
